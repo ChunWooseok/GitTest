@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		var i = 0;
+
+		//window.onload = function(){}; 과 같다.
+		$(document).ready(function(){
+
+			$("h2").click(function(){
+				$(this).hide();
+			});
+
+			//$("div.out").mouseover(function(){
+	 		$("div.out").mouseenter(function(){
+				$("p:first").text("mouse over");
+				$("p:last").text(++i);
+			});
+
+			$("input").focus(function(){
+				$(this).css("background-color", "yellow");
+			});
+			$("input").blur(function(){
+				$(this).css("background-color", "white");
+			});
+		});
+	</script>
+</head>
+<body>                                                                     
+	<h2>클릭하면 사라집니다.</h2>
+	<div class="out" style="background-color: yellow; width: 400px;">
+		<p>마우스를 여기로 움직이세요.</p>
+		<p>0</p>
+	</div>
+	아이디: <input type="text" name="name"><br>
+	<div id="log"></div>
+	<script type="text/javascript">
+		$(document).mousemove(function(e){
+			$("#log").text("e.pageX : " + e.pageX + ", e.pageY : " + e.pageY);
+		});
+	</script>
+</body>
+</html>
